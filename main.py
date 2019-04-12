@@ -5,7 +5,8 @@ import time
 conf = SparkConf().setAppName("PythonWordCount 1 worker")
 sc = SparkContext(conf=conf)
 
-file = "https://raw.githubusercontent.com/subpath/ChatBot/master/data/cornell%20movie-dialogs%20corpus/movie_lines.txt"
+#"https://raw.githubusercontent.com/subpath/ChatBot/master/data/cornell%20movie-dialogs%20corpus/movie_lines.txt"
+file = "movie_lines.txt"
 
 lines = sc.textFile(file, 1)
 
