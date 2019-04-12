@@ -6,8 +6,6 @@ USER root
 RUN apt-get update \
  && apt-get install -y nano wget git python3 python3-pip
 
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2
-
 WORKDIR $SPARK_HOME
 
 RUN git clone https://github.com/gibrano/wordcount-pyspark.git
