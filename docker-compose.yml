@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   master:
-    image: gettyimages/spark:latest
+    image: gettyimages/spark:2.2.0-hadoop-2.7
     command: bin/spark-class org.apache.spark.deploy.master.Master -h master
     hostname: master
     environment:
@@ -24,12 +24,9 @@ services:
     volumes:
       - ./conf/master:/conf
       - ./data:/tmp/data
-    networks:
-      default:
-        ipv4_address: 172.18.0.1
 
   worker:
-    image: gettyimages/spark:latest
+    image: gettyimages/spark:2.2.0-hadoop-2.7
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
     hostname: worker
     environment:
@@ -52,10 +49,3 @@ services:
     volumes:
       - ./conf/worker:/conf
       - ./data:/tmp/data
-
-networks:
-  default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.18.0.0/16
