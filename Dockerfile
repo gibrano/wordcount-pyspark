@@ -4,7 +4,9 @@ MAINTAINER Gibran Otazo "gibran.otazo@gmail.com"
 USER root
 
 RUN apt-get update \
- && apt-get install -y nano wget git python3 python3-pip \
+ && apt-get install -y nano wget git python3 python3-pip
+
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2
 
 WORKDIR $SPARK_HOME
 
