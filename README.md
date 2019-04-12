@@ -4,7 +4,7 @@
 sudo docker build -t wordcount-pyspark --no-cache .
 
 # Up the cluster.
-sudo docker-compose up --scale worker=1
+sudo docker-compose up --scale worker=1 -d
 
 # Get in to docker master.
 sudo docker exec -it wordcount_master_1 /bin/bash
